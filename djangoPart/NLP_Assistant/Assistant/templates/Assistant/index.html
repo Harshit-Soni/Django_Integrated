@@ -3,19 +3,48 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="{% static '/css/master.css' %}">
+    <link rel="stylesheet" href="{% static 'css/master.css' %}">
     <title>NLP</title>
   </head>
   <body>
     <h1 class='brand'>Cross</h1>
+    
     <div class="container">
       <div class="circle"></div>
-      <p><a class='text' href='{% url "script" %}'>ASK</a></p>
+      <a id='text' href='{% url "script" %}'>ASK</a>
       <div class="pointer-container">
         <div class="pointer transP"></div>
       </div>
       <div class="gradient-circle transC"></div>
     </div>
+
+    <div id="assistant_function" class='try'>
+      <div class="other">
+        <div class="card-image"></div>
+        <div class="card-text">Other Functions</div>
+        <div class="card-stats"><a href="#">Stats</a></div>
+      </div>
+
+      <div class="chatbot">
+        <div class="card-image"></div>
+        <div class="card-text">Chatbot</div>
+        <div class="card-stats"><a href="#">Stats</a></div>
+      </div>
+
+      <div class="Sentiment">
+        <div class="card-image"></div>
+        <div class="card-text">Sentiment Analysis</div>
+        <div class="card-stats"><a href="#">Stats</a></div>
+      </div>
+
+      <div class="text_summ">
+        <div class="card-image"></div>
+        <div class="card-text">Text Summarization</div>
+        <div class="card-stats"><a href="#">Stats</a></div>
+      </div>
+      
+    </div>
+
   </body>
-  <script type="text/javascript" src="{% static '/js/script.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
 </html>

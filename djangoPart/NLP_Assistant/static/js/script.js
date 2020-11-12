@@ -2,6 +2,8 @@ const container=document.querySelector('.container')
 const text =document.querySelector('#text')
 const pointer=document.querySelector('.pointer')
 const gc=document.querySelector('.gradient-circle')
+const brand = document.querySelector('.brand')
+const assistant_function = document.querySelector('#assistant_function')
 const totaltime=8000
 const changetime=4000
 // const hold=totaltime/5
@@ -15,17 +17,20 @@ function BreathAnimation(){
     // text.innerHTML='<p>Breath In!</p>'
     container.className='container grow'
 
-    setTimeout(()=>{
+    setTimeout(()=>
+    {
       // text.innerText = 'hold!'
       container.className='container shrink'
-      setTimeout(()=>{
+      setTimeout(()=>
+      {
         // text.innerText='Breath Out!'
         container.className='container grow'
       },changetime)
     },changetime)
 }
 
-setInterval(BreathAnimation,totaltime);
+setInterval(BreathAnimation,totaltime); // ???
+
 function clr() {
   if (text.innerText == 'Speak...') {
     text.innerText = 'ASK'
@@ -35,3 +40,18 @@ function clr() {
   }
 }
 text.onclick = clr;
+
+brand.addEventListener('click',function()
+{
+  if (assistant_function.style.opacity=='1')
+  {
+    assistant_function.style.opacity='0'
+    container.style.marginTop = '5px';
+  }
+  else{
+    assistant_function.style.opacity='1'
+    container.style.marginTop = '2px';
+  }
+  // assistant_function.classList.toggle('try');
+})
+
