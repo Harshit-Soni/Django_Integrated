@@ -12,3 +12,9 @@ def runScript(request):
     from . import script
     print(123)
     return render(request,'Assistant/index.html')
+
+def chatbotpage(request):
+    return render(request,'Assistant/chatbotQA.html')
+
+def requestQuerry(request):
+    render(None,'Assistant/chatbotQA.html')

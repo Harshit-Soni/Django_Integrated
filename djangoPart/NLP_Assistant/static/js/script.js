@@ -54,4 +54,3 @@ brand.addEventListener('click',function()
   }
   // assistant_function.classList.toggle('try');
 })
-
