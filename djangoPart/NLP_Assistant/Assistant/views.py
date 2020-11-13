@@ -17,4 +17,4 @@ def chatbotpage(request):
     return render(request,'Assistant/chatbotQA.html')
 
 def requestQuerry(request):
-    render(None,'Assistant/chatbotQA.html')
+    render(request,'Assistant/chatbotQA.html')

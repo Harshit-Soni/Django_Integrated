@@ -38,10 +38,9 @@
 
 // 	console.log(transcript);
 // }
-console.log("here1")
 $(function () {
-	console.log('here')
 	function get_response() {
+		console.log('here')
 		var value = $('#text_area').val();
 
 		if (value.length > 0) {
@@ -73,6 +72,7 @@ $(function () {
 			// $('.no-message').removeClass('hidden');
 			$('#text_area').val('');
 		}
+		console.log('completed')
 	}
 
 	$('#send').click(function(){
