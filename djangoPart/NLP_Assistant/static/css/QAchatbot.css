@@ -183,7 +183,7 @@ body{
   margin-bottom: 2%;
 }
 
-form{
+.form{
   display: flex;
   flex-direction: row;
   padding: 1%;

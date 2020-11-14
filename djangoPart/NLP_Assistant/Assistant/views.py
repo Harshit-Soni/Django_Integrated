@@ -10,7 +10,6 @@ def HomePage(request):
 def runScript(request):
     print('start')
     from . import script
-    print(123)
     return render(request,'Assistant/index.html')
 
 def chatbotpage(request):
