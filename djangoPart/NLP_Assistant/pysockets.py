@@ -33,6 +33,7 @@ def gSearch(statement):
 
 def driver(statement):
     # speak("ok all set")
+    statement=statement.lower()
     if "goodbye" in statement or "ok bye" in statement or "stop" in statement:
         speak('okay i am right here if you need me, Good bye')
         return 'okay i am right here if you need me, Good bye'

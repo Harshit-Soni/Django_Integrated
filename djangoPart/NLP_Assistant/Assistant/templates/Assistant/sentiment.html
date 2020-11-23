@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sentiment Analysis</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/sentiment_css.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <p><a class="brand" href="{% url 'sentAnalys' %}">Sentiment Analysis</a></p>
+
+    <div id="data">
+      <div class="row">
+        <div class="col s12">
+          <div class="input-field col s10">
+            <input id="text" type="text" placeholder="url/text">
+          </div>
+          <div class="input-field col s2">
+            <button class="btn waves-effect waves-light" id="go">Go
+                <i class="large material-icons">assessment</i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="show_sentiment">
+      
+    </div>
+
+    <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/sentiment_js.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
