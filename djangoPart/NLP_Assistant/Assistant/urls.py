@@ -8,4 +8,5 @@ urlpatterns = [
     path('',views.requestQuerry,name='reqQuerry'),
     path('SentAjax',views.sentimentAnalysis,name='sentAnalys'),
     path('sentAjax',views.AjaxHandler.as_view(),name='sentAjax'),
+    path('textSummerization',views.textSumm,name='textSumm'),
 ]

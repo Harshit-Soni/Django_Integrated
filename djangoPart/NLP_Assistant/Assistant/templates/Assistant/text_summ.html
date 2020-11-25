@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Text Summarization</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/textSumm_style.css' %}">
+	<link rel="stylesheet" href="{% static 'css/medium-editor.css' %}">
+	<link rel="stylesheet" href="{% static 'css/themes/default.css' %}">
+</head>
+<body>
+	<p><a class="brand" href="{% url 'textSumm' %}">Text Summarization</a></p>
+	
+	<div class="container">
+		<div class="form_group">
+			<form method='POST' enctype='multipart/form-data' id='form'>
+			{% csrf_token %}
+			  <div class="file-field input-field">
+				<div class="btn">
+					<span>Choose File</span>
+					<input  id="inputfile" type="file" name='text'>
+				</div>
+				<div class="file-path-wrapper">
+					<input class="file-path validate" type="text" placeholder="Upload text file...">
+				</div>
+			</div>
+			</form>
+				<button class="btn waves-effect waves-light go" id="summarize" onclick="submitForm()">Go
+					<i class="material-icons right">assessment</i>
+				</button>
+		</div>
+
+		<div id="output" class="editable medium-editor-element"></div>
+		
+		<a class="btn waves-effect waves-light" id="link" onclick="download()">Download</a>
+
+	</div>
+	<script type="text/javascript" src="{% static 'js/textSumm.js' %}"></script>
+	<script src="{% static 'js/medium-editor.js' %}"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<script>
+		var data=JSON.parse("{{ data|escapejs }}");
+		data=data['ST'][1]
+		output.appendChild(document.createTextNode(data));
+		var editor = new MediumEditor('.editable', {
+			buttonLabels: false,
+		});
+		output.style.display = "block";
+		link.style.opacity = "1";
+
+		document.getElementById('link').onclick=function(){
+			var text=editor.getContent()
+			text=text.replace(/(<([^>]+)>)/ig,"")
+			console.log('this is\n'+text)
+			var blob = new Blob([text], { type: "text/plain"});
+			
+			objectURL = URL.createObjectURL(blob);
+			link.download = 'summ'; // this name is used when the user downloads the file
+			// console.log(link.download);
+			link.href = objectURL;
+		}
+	</script>
+</body>
+</html>

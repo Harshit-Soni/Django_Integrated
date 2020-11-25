@@ -6,7 +6,8 @@ from django.views.generic import View
 from django.http import JsonResponse
 from time import time
 from .SentimentAnalysis import analize
-
+from .TextSummarize import generate_summary
+from json import dumps
 
 def HomePage(request):
     return render(request, 'Assistant/index.html')
@@ -24,6 +25,16 @@ def requestQuerry(request):
 
 def sentimentAnalysis(request):
     return render(request,'Assistant/sentiment.html')
+
+def textSumm(request):
+    if request.method=='POST':
+        upFile=request.FILES['text'].read()
+        upFile=str(upFile,'utf-8')
+        upFile=generate_summary(upFile,5)
+        res={'ST':upFile}
+        dJSON=dumps(res)
+        return render(request,'Assistant/text_Summ.html',{'data':dJSON})
+    return render(request,'Assistant/text_Summ.html')
 
 class AjaxHandler(View):
     def get(self,request):
