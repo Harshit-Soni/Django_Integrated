@@ -3,7 +3,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="{% static 'css/master.css' %}">
+    <link rel="stylesheet" href="{% static 'css/intro.css' %}">
     <title>NLP</title>
   </head>
   <body>
@@ -11,12 +11,19 @@
     
     <div class="container">
       <div class="circle"></div>
-      <a id='text' href='{% url "script" %}'>ASK</a>
+      <form action="" method="POST" class='form'>
+        {% csrf_token %}
+        <a id='text' href='#'>start</a>
+      </form>
       <div class="pointer-container">
         <div class="pointer transP"></div>
       </div>
       <div class="gradient-circle transC"></div>
     </div>
+    <div class="intro">
+      <p class='introtext'>hey Boss I am Cross version 1 point O your personal assistant.</p>
+    </div>
+
 
     <div id="assistant_function" class='try'>
       <div class="other">
@@ -44,7 +51,6 @@
       </div>
       
     </div>
-
+    <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
   </body>
-  <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
 </html>

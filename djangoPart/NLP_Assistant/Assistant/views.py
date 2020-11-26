@@ -8,8 +8,11 @@ from time import time
 from .SentimentAnalysis import analize
 from .TextSummarize import generate_summary
 from json import dumps
+import os
 
 def HomePage(request):
+    if request.method=='POST':
+        from . import script
     return render(request, 'Assistant/index.html')
 
 def runScript(request):
@@ -18,6 +21,7 @@ def runScript(request):
     return render(request,'Assistant/index.html')
 
 def chatbotpage(request):
+    os.system(r'python H:\MajorProject\Project\Django_Integrated\djangoPart\NLP_Assistant\pysockets.py')
     return render(request,'Assistant/chatbotQA.html')
 
 def requestQuerry(request):
