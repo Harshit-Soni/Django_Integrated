@@ -21,7 +21,6 @@ def runScript(request):
     return render(request,'Assistant/index.html')
 
 def chatbotpage(request):
-    os.system(r'python H:\MajorProject\Project\Django_Integrated\djangoPart\NLP_Assistant\pysockets.py')
     return render(request,'Assistant/chatbotQA.html')
 
 def requestQuerry(request):
@@ -47,3 +46,6 @@ class AjaxHandler(View):
         if request.is_ajax():
             return JsonResponse(data,status=200)
         return render(request,'Assistant/sentiment.html')
+
+def QaSystem(request):
+    return render(request,'Assistant/qa_system.html')

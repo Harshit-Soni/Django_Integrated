@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;1,100&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Poppins',sans-serif;
+  background: url(../images/cube.jpg) no-repeat;
+  /*background: white;*/
+  /*color: black;*/
+  background-size: cover;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+}
+
+.brand{
+  /*margin-top: 5%;*/
+  font-size: 35px;
+  letter-spacing: 3px;
+  animation: cngclr 2s alternate infinite;
+  user-select: none;
+}
+@keyframes cngclr {
+  0%{
+    color: #d100d1;
+    text-shadow: 0 0 5px #d100d1,
+                0 0 25px #d100d1;
+  }
+  100%{
+    color: #6fffe9;
+    text-shadow: 0 0 5px #6fffe9,
+                0 0 10px #6fffe9,
+                0 0 25px #6fffe9;
+  }
+}
+.brand:hover{
+  text-shadow: 0 0 5px white,
+              0 0 25px white;
+}
+
+#upload_data{
+  color: white;
+  margin-top: -4%;
+  margin-left: 65em;
+}
+/* 
+input[type="file"] {
+  font-family: 'Poppins',sans-serif;
+} */
+
+/* 
+input[type="file"] {
+  display:none;
+}
+
+.custom-file-upload {
+  border: 1px solid #6fffe9;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  letter-spacing: 3px;
+}
+
+input[type="text"] {
+  border: none;
+  background: transparent;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  padding: 8px 13px;
+} */
+
+.container{
+	/* background: white; */
+  margin: 0;
+	height: 100vh;
+  display: flex;
+}
+
+/* .user-area, .chatbot-area {
+    width: 20%;
+    height: calc(100vh - 60px);
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    left: 3%;
+    z-index: 99999;
+}
+
+.user-area {
+    float: left;
+    right: 3%;
+    left: auto;
+}
+
+.user-area img, .chatbot-area img {
+    width: 100%;
+    height: 50%;
+}
+
+.chatbot-area img{
+	left: 0;
+} */
+
+.chatarea-main {
+    display: block;
+    width: 50%;
+    /* margin: auto; */
+    margin-left: 15%;
+    height: 100%;
+    transition: all .5s ease;
+}
+
+.chatarea-outer {
+	  padding: 1%;
+    width: 700px;
+    float: left;
+    height: 75%;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    /*background: white;*/
+    transition: all .5s ease;
+
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #e3dfde;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* .user-area .chatarea-main{
+	float: left;
+} */
+
+.chatarea-inner {
+    float: left;
+    width: 500px;
+    padding: 10px;
+    color: #fff;
+    position: relative;
+    margin: 5px 0;
+    background: black;
+}
+
+.chatarea.user {
+    float: right;
+    width: 40%;
+    padding: 20px 0;
+}
+
+.chatarea-inner.chatbot{
+    background: #6522A4;
+    border-radius: 30px 0px;
+}
+.chatarea-inner.user{
+    background: #008a75;
+    float: right;
+    border-radius: 0px 30px 0px 30px;
+
+}
+
+/*.chatarea-inner.user:before {
+    content: '';
+    position: absolute;
+    border-right: 20px solid #6522A4;
+    border-top: 20px solid transparent;
+    border-bottom: 0px solid transparent;
+    bottom: 0;
+    left: -20px;
+}
+
+.chatarea-inner.chatbot:before {
+    content: '';
+    position: absolute;
+    border-left: 20px solid #6fffe9;
+    border-top: 20px solid transparent;
+    border-bottom: 0px solid transparent;
+    bottom: 0;
+    right: -20px;
+}*/
+
+.user-area .chatarea-inner{
+  float: left;
+}
+
+.user_form{
+  width: 145%;
+  float: left;
+  margin-top: 10px;
+  /* background: black; */
+  max-height: 50px;
+  margin-bottom: 2%;
+}
+
+.form{
+  display: flex;
+  flex-direction: row;
+  padding: 1%;
+}
+
+textarea{
+  text-align: center;
+  font-size: 15px;
+  margin-top: 1%;
+  outline: 0;
+  background: grey;
+  color: white;
+  border: 1px solid #888; 
+  border-radius: 15px;
+  outline: none;
+  margin: 6.54688px 10px 0px; 
+  width: 559px; 
+  height: 32px;
+  resize: none;
+}
+/* textarea:focus{
+  color: white;
+  transform: translateY(-8px);
+  transition: all .5s ease;
+} */
+
+#send {
+  height: 35px;
+  width: 35px;
+  margin:5px;
+  padding: 0.5px;
+}
+
+#mic{
+  height: 35px;
+  width: 35px;
+  margin:5px;
+  padding: 3px;
+}
