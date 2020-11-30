@@ -2,7 +2,8 @@ import asyncio
 import websockets
 import json
 
-##########################
+#################################################################################
+
 import re
 import gensim
 import sklearn
@@ -11,7 +12,6 @@ from gensim.models import Word2Vec
 import gensim.downloader as api
 import numpy
 from nltk.tokenize import sent_tokenize
-
 
 print('Loading Model...')
 v2wModel=None
@@ -23,7 +23,7 @@ except:
     v2wModel=api.load('word2vec-google-news-300')
     v2wModel.save('./w2vModel.mod')
     print('model Downloaded and saved')
-w2vecEmbeddings_size=len(v2wModel['computer'])
+# w2vecEmbeddings_size=len(v2wModel['computer'])
 sent_embeddings=[]
 cleaned_answers=''
 
@@ -92,8 +92,6 @@ def driver(data):
     # question_embedding=getPhraseEmbedding(question,v2wModel)
     # return getQA(question_embedding,sent_embeddings,data)
 
-
-
 ################################################################
 
 
@@ -101,15 +99,15 @@ async def chat_receiver(websocket, path):
     async for message in websocket:
         message = json.loads(message)
         ques = message['text']
+        global sent_embeddings
         # print(message['comp'])
-        if len(message['comp'])==0:
-            chat_response='check if file loaded successfully or load again'
-        else:
-            if len(sent_embeddings)==0:
-                driver(message['comp'])
-            question_embedding=getPhraseEmbedding(ques,v2wModel)
-            chat_response=getQA(question_embedding,sent_embeddings,cleaned_answers)
-            print(chat_response)
+        if len(sent_embeddings)==0 or len(message['comp'])!=0:
+            sent_embeddings=[]
+            driver(message['comp'])
+
+        question_embedding=getPhraseEmbedding(ques,v2wModel)
+        chat_response=getQA(question_embedding,sent_embeddings,cleaned_answers)
+        print(chat_response)
         await websocket.send(json.dumps({'response': chat_response}))
 
 async def router(websocket, path):

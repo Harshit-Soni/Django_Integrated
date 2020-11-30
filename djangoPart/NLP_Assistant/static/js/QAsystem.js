@@ -1,4 +1,19 @@
 $(function () {
+	console.log('edited')
+	var comp=''
+	$("#gettext").click(function () {
+		console.log('inside')
+
+		var f = $("#fileToLoad").prop('files')[0]
+		fr = new FileReader()
+		fr.onload = function (fileLoadedEvent) {
+			var textFromfile = fileLoadedEvent.target.result
+			console.log(typeof textFromfile)
+			comp += textFromfile
+			$("#gettext").text("Loaded")
+		}
+		fr.readAsText(f, "UTF-8")
+	})
 	function get_response() {
 		console.log('here')
 		
@@ -24,8 +39,7 @@ $(function () {
 				$('#text_area').val('');
 			};
 
-			var data = {'text': value};
-
+			var data = { 'text': value, 'comp': comp };
 			socket.onopen = function(event) {
 				socket.send(JSON.stringify(data));
 			};
@@ -34,6 +48,7 @@ $(function () {
 			$('#text_area').val('');
 		}
 		console.log('completed')
+		comp = ''
 	}
 
 	$('#send').click(function(){
@@ -100,15 +115,6 @@ $(function () {
 		}
 	});
 
-	$("btn-info").click(function () {
-		console.log('inside')
-		var f = $("fileToLoad").files[0]
-		fr = new FileReader()
-		fr.onload = function (fileLoadedEvent) {
-			var textFromfile = fileLoadedEvent.target.result
-			console.log(textFromfile)
-		}
-		fr.readAsText(f, "UTF-8")
-	})
+
 
 });

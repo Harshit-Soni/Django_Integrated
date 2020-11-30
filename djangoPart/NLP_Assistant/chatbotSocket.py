@@ -1,8 +1,11 @@
 import asyncio
+import re
 import websockets
 import json
 import speech_recognition as sr
+
 #############################
+
 import pyttsx3
 import datetime
 import wikipedia
@@ -24,10 +27,11 @@ def speak(text):
 
 def gSearch(statement):
     query = statement.replace('search for', '')
-    for url in search(query, tld="co.in", num=1, stop=1, pause=2):
+    for url in search(query,num_results=1):
         webbrowser.get("C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s").open_new_tab(
             "https://google.com/search?q=%s" % query
         )
+        break
     speak('these are some results')
     return 'check the tab'
 
@@ -50,22 +54,22 @@ def driver(statement):
 
     elif 'search for' in statement:
         gSearch(statement)
-        return None
+        return 'check the tab'
 
     elif 'open youtube' in statement:
         webbrowser.get("C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s").open_new_tab("https://www.youtube.com")
         speak("youtube is open now")
-        return None
+        return 'check the tab'
 
     elif 'open google' in statement:
         webbrowser.get("C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s").open_new_tab("https://www.google.com")
         speak("Google chrome is open now")
-        return None
+        return 'check the tab'
 
     elif 'open gmail' in statement:
         webbrowser.get("C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s").open_new_tab("gmail.com")
         speak("Google Mail open now")
-        return None
+        return 'check the tab'
 
     elif "weather" in statement:
         api_key="8ef61edcf1c576d65d836254e11ea420"
@@ -114,7 +118,7 @@ def driver(statement):
     elif "open stackoverflow" in statement:
         webbrowser.open_new_tab("https://stackoverflow.com/login")
         speak("Here is stackoverflow")
-        return None
+        return "Here is stackoverflow"
 
     elif 'news' in statement:
         news = webbrowser.open_new_tab("https://timesofindia.indiatimes.com/home/headlines")
@@ -129,23 +133,20 @@ def driver(statement):
         try:
             res = client.query(question)
             answer = next(res.results).text
+            answer=answer.split('\n')
+            if len(answer)>4:
+                answer='\n'.join(answer[:4])
+            speak(answer)
         except:
             answer=''
-            gSearch(statement)
-        speak('its '+answer)
-        return 'its '+answer
+            print(statement)
+            answer=gSearch(statement)
+            speak(answer)
+        return answer
 
     elif "who made you" in statement or "who created you" in statement or "who discovered you" in statement:
         speak("i am created by some engineers at DAVIET")
         return "i am created by some engineers at DAVIET"
-
-
-
-
-
-
-
-
 
 
 async def chat_receiver(websocket, path):
