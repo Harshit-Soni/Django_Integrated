@@ -28,7 +28,7 @@ function BreathAnimation(){
     },changetime)
 }
 
-setInterval(BreathAnimation,totaltime); // ???
+setInterval(BreathAnimation,totaltime);
 
 function clr() {
   console.log('dgvhbkv')
@@ -48,7 +48,7 @@ brand.addEventListener('click',function()
   if (assistant_function.style.opacity=='1')
   {
     assistant_function.style.opacity='0'
-    container.style.marginTop = '5px';
+    container.style.marginTop = '1px';
   }
   else{
     assistant_function.style.opacity='1'

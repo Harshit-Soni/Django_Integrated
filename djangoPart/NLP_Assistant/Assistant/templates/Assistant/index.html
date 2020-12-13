@@ -1,9 +1,10 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/intro.css' %}">
     <title>NLP</title>
   </head>
   <body>
@@ -11,15 +12,18 @@
     
     <div class="container">
       <div class="circle"></div>
+
       <form action="" method="POST" class='form'>
         {% csrf_token %}
         <a id='text' href='#'>start</a>
       </form>
+
       <div class="pointer-container">
         <div class="pointer transP"></div>
       </div>
       <div class="gradient-circle transC"></div>
     </div>
+
     <div class="intro">
       <p class='introtext'>hey Boss I am Cross version 1 point O your personal assistant.</p>
     </div>

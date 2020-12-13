@@ -1,4 +1,23 @@
 $(function () {
+
+	// Loading file
+	console.log('edited')
+	var comp=''
+	$("#gettext").click(function () {
+		console.log('inside')
+
+		var f = $("#fileToLoad").prop('files')[0]
+		fr = new FileReader()
+		fr.onload = function (fileLoadedEvent) {
+			var textFromfile = fileLoadedEvent.target.result
+			console.log(typeof textFromfile)
+			comp += textFromfile;
+			$("#gettext").text("Loaded");
+		}
+		fr.readAsText(f, "UTF-8")
+	})
+
+	// getting response
 	function get_response() {
 		console.log('here')
 		
@@ -13,9 +32,8 @@ $(function () {
 			console.log(html_string)
 			console.log($('.chatarea-outer'))
 
-			var socket = new WebSocket('ws://127.0.0.1:8765');
+			var socket = new WebSocket('ws://127.0.0.1:8770');
 
-			// step 2 -> data received
 			socket.onmessage = function(event) {
 				data = JSON.parse(event.data);
 
@@ -25,9 +43,7 @@ $(function () {
 				$('#text_area').val('');
 			};
 
-			// step 1 -> data is sent via sockets in the form of dictionary
-			var data = {'text': value};
-
+			var data = { 'text': value, 'comp': comp };
 			socket.onopen = function(event) {
 				socket.send(JSON.stringify(data));
 			};
@@ -35,7 +51,8 @@ $(function () {
 			// $('.no-message').removeClass('hidden');
 			$('#text_area').val('');
 		}
-		console.log('completed')
+		console.log('completed');
+		comp='';
 	}
 
 	$('#send').click(function(){
@@ -63,7 +80,7 @@ $(function () {
 			console.log(html_string)
 			console.log($('.chatarea-outer'))
 
-			var socket = new WebSocket('ws://127.0.0.1:8765');
+			var socket = new WebSocket('ws://127.0.0.1:8770');
 
 			socket.onmessage = function(event) {
 				data = JSON.parse(event.data);
@@ -100,5 +117,6 @@ $(function () {
 			getmic_response(transcript);
 		// chatbotvoice(transcript);
 		}
-	  });
+	});
+
 });

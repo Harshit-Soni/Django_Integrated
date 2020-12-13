@@ -8,8 +8,6 @@
 body{
   font-family: 'Poppins',sans-serif;
   background: url(../images/cube.jpg) no-repeat;
-  /*background: white;*/
-  /*color: black;*/
   background-size: cover;
   min-height: 100vh;
   overflow: hidden;
@@ -49,31 +47,6 @@ body{
   margin-top: -4%;
   margin-left: 65em;
 }
-/* 
-input[type="file"] {
-  font-family: 'Poppins',sans-serif;
-} */
-
-/* 
-input[type="file"] {
-  display:none;
-}
-
-.custom-file-upload {
-  border: 1px solid #6fffe9;
-  display: inline-block;
-  padding: 6px 12px;
-  cursor: pointer;
-  letter-spacing: 3px;
-}
-
-input[type="text"] {
-  border: none;
-  background: transparent;
-  border-bottom: 1px solid #fff;
-  outline: none;
-  padding: 8px 13px;
-} */
 
 .container{
 	/* background: white; */
@@ -81,32 +54,6 @@ input[type="text"] {
 	height: 100vh;
   display: flex;
 }
-
-/* .user-area, .chatbot-area {
-    width: 20%;
-    height: calc(100vh - 60px);
-    margin-right: 15px;
-    display: flex;
-    align-items: center;
-    position: fixed;
-    left: 3%;
-    z-index: 99999;
-}
-
-.user-area {
-    float: left;
-    right: 3%;
-    left: auto;
-}
-
-.user-area img, .chatbot-area img {
-    width: 100%;
-    height: 50%;
-}
-
-.chatbot-area img{
-	left: 0;
-} */
 
 .chatarea-main {
     display: block;
@@ -126,7 +73,6 @@ input[type="text"] {
     scroll-behavior: smooth;
     /*background: white;*/
     transition: all .5s ease;
-
 }
 
 ::-webkit-scrollbar {

@@ -9,37 +9,32 @@
 </head>
 <body>
 
-	<div class="brand">
-		<p>Automated Q/A</p>
+    <div class="homebutton" style="position: absolute; left: 10px; font-size: 2.5em;">
+        <a href="{% url 'homepage' %}" style="text-decoration: none;">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-house-door-fill" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.5 10.995V14.5a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5h-4a.5.5 0 0 1-.5-.5V11c0-.25-.25-.5-.5-.5H7c-.25 0-.5.25-.5.495z"/>
+                <path fill-rule="evenodd" d="M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+            </svg>
+        </a>
     </div>
 
-    <!-- <div id="upload_data" class="file-field input-field">
-        <label class="custom-file-upload">
-            <input type="file"/>
-            Custom Upload
-        </label>
-    </div> -->
+    <p><a class="brand" href="{% url 'QAsystem' %}">Chat with Cross.</a></p>
 
-    <div id="upload_data">
-        <!-- <input type="file"/> -->
-        <div class="file-field input-field">
+    <div >
+        <div class="file-field input-field" id="upload_data">
             <input type="file" id="fileToLoad">
             <div class="file-path-wrapper">
               <input class="file-path validate" type="text" placeholder="Upload file" style="color: white; margin-top: -5px;">
+              <button id='gettext' class="btn btn-info" style="position: absolute; margin-left: 5px; height: 2.9em;">GO</button>
             </div>
-            <button id='gettext' class="btn btn-info">GO</button>
         </div>
     </div>
 
 	<div class="container">
-
-		<!-- <div class="chatbot-area">
-            <img src="chatbot.png">
-        </div> -->
-
         <div class="chatarea-main">
             <div class="chatarea-outer">
-                <div class="chatarea-inner chatbot">Hello hi, how are you, Just load the text and start shooting Question i'll try my best to answer cheers!!</div>
+                <div class="chatarea-inner chatbot">Hello hi, how are you, i am good. What about you!Hello hi, how are you, i am good. What about you!Hello hi, how are you, i am good. What about you!</div>
+                <div class="chatarea-inner user">Hello hi, how are you, i am good. What about you!Hello hi, how are you, i am good. What about you!Hello hi, how are you, i am good. What about you!</div>
             </div>
 
             <div class="user_form">
@@ -57,14 +52,10 @@
                 </div >
             </div>
         </div>
-
-        <!-- <div class="user-area">
-            <img src="user.png">
-        </div> -->
-
 	</div>
+
     <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/QAsystem.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/QA_system.js' %}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
